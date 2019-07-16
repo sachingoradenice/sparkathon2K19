@@ -130,21 +130,13 @@ let Chaincode = class {
      * @param {*} args 
      */
     async initLedger(stub, args) {
-        this.logStart('initLedger', null);
-        this.logEnd('initLedger');
-    }
-
-    logStart(fName, args) {
-        console.log('============= START : ' + fName + ' ===========')
-        console.log('##### ' + fName + ' arguments: ' + JSON.stringify(args));
-    }
-
-    logEnd(fName) {
-        console.log('============= END : '+ fName +' ===========');
+        console.log('============= START : initLedger ===========')
+        console.log('============= END : initLedger ===========');
     }
 
     async createEntity(stub, args) {
-        this.logStart('createEntity', args);
+        console.log('============= START : createEntity ===========')
+        console.log('##### createEntity arguments: ' + JSON.stringify(args));
 
         // args is passed as a JSON string
         let json = JSON.parse(args);
@@ -156,12 +148,14 @@ let Chaincode = class {
             throw new Error('##### createEntity - This event already exists: ' + key);
         }
         await stub.putState(key, Buffer.from(JSON.stringify(json)));
-        this.logEnd("createEntity");
+        console.log('============= END : createEntity ===========');
     }
 
     async queryEventByEntityType(stub, args) {
-        this.logStart('queryEntity', args);
+        console.log('============= START : queryEntity ===========')
+        console.log('##### queryEntity arguments: ' + JSON.stringify(args));
 
+        let json = JSON.parse(args);
         let key = json['entity'];
 
         let queryString = '{"selector": {"entity": '+ key + '}}';
