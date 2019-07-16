@@ -158,7 +158,7 @@ let Chaincode = class {
         let json = JSON.parse(args);
         let key = json['entity'];
 
-        let queryString = '{"selector": {"entity": '+ key + '}}';
+        let queryString = '{"selector": {"entity": "'+ key + '"}}';
         return queryByString(stub, queryString);
     }
 
