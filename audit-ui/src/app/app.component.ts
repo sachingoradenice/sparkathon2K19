@@ -20,8 +20,8 @@ import { HistoryDataSource } from './ds/history.datasource';
 export class AppComponent implements OnInit {
   
   title = 'CXOne Blockchain Based Audit Logs';
-  columnsToDisplay = ["entity", "appName", "previousValue", "changedValue", "attribute", "eventTime", "history"];
-  columnsNames = ["Entity", "Application", "Previous Value", "Changed Value", "Attribute", "Event Time"];
+  columnsToDisplay = ["entity", "appName",  "attribute", "previousValue", "changedValue", "eventTime", "history"];
+  columnsNames = ["Entity", "Application", "Attribute", "Previous Value", "Changed Value", "Event Time"];
   dataSource: EntityDataSource;
   historyDataSource: HistoryDataSource;
   expandedElement: Entity = null;
@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
 
   getHistory(element) {
     this.expandedElement = this.expandedElement === element ? null : element;
-    this.historyDataSource.loadHistory(element.entity, element.entity_instance_id);
+    this.historyDataSource.loadHistory(element.entity, element.entityInstanceId);
   }
 
   ngOnInit(): void {

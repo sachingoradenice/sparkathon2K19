@@ -25,6 +25,7 @@ export class HistoryDataSource implements DataSource<Entity> {
 
     loadHistory(entity: string, entityInstanceId: string) {
         this.loadingSubject.next(true);
+        this.entitiesSubject.next([]);
 
         this.entityService.getHistoryForKey(entity, entityInstanceId)
         .subscribe((res:any[]) => {

@@ -4,6 +4,7 @@ table {
   
   tr.example-detail-row {
     height: 0;
+    background-color: #ededed;
   }
   
   tr.example-element-row:not(.example-expanded-row):hover {
@@ -18,6 +19,11 @@ table {
     border-bottom:1px dashed #999!important;
   }
   
+  .subHeaderRow {
+    background-color: #fffff0;
+    cursor: default;
+  }
+
   .example-element-row td {
     border-bottom-width: 0;
   }
@@ -31,11 +37,13 @@ table {
   
   .example-element-diagram {
     min-width: 80px;
-    /* border: 2px solid black; */
     padding: 0px;
     font-weight: lighter;
     margin: 10px;
-    height: 154px;
+    max-height: 204px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border: 1px solid #dbdbdb;
   }
   
   .example-element-symbol {
